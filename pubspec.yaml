@@ -1,0 +1,18 @@
+name: form
+description: Easy form validation and state management
+version: 0.0.1
+homepage: https://github.com/EdsonOnildoJR/form
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  validators: ^2.0.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
