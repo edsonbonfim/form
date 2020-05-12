@@ -1,3 +1,4 @@
+import 'package:example/strong_password_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:form/form.dart';
 
@@ -8,7 +9,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Form")),
+        appBar: AppBar(
+          title: Text("Form"),
+        ),
         body: HomePage(),
       ),
     );
@@ -21,69 +24,80 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final form = GlobalKey<FormState>();
-
-  TextEditingController username;
-  TextEditingController password;
+  FormController form;
+  InputController username;
+  InputController password;
 
   @override
   void initState() {
     super.initState();
 
-    username = TextEditingController()
-      ..validators({
-        Validators.required: "This field is required",
-        Validators.minLength(6):
-            "This field should not have less than 6 characters",
-      });
+    form = FormController();
 
-    password = TextEditingController()
-      ..validators({
-        Validators.required: "This field is required",
-        Validators.minLength(6):
-            "This field should not have less than 6 characters",
-      });
+    username = InputController(
+      autovalidate: true,
+      validators: [
+        Validators.minLength(6),
+      ],
+    );
+
+    password = InputController(validators: [
+      StrongPasswordValidator(),
+    ]);
   }
 
   @override
   void dispose() {
-    username.dispose();
     password.dispose();
+    username.dispose();
+    form.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Form(
-        key: form,
-        child: Column(
-          children: [
-            Input(
-              controller: username,
-              decoration: InputDecoration(
-                labelText: "Username",
+    return FormInput(
+      controller: form,
+      child: Column(
+        children: [
+          Input(
+            controller: username,
+            decoration: InputDecoration(
+              labelText: "Username",
+            ),
+          ),
+          Input(
+            controller: password,
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: "Password",
+            ),
+          ),
+          SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: RaisedButton(
+                  onPressed: submit,
+                  child: Text("Login"),
+                ),
               ),
-            ),
-            Input(
-              controller: password,
-              decoration: InputDecoration(
-                labelText: "Password",
+              Expanded(
+                child: RaisedButton(
+                  onPressed: form.reset,
+                  child: Text("Reset"),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            RaisedButton(
-              onPressed: submit,
-              child: Text("Submit"),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  void submit() {
-    if (form.validate()) {
+  void submit() async {
+    if (await form.validate()) {
+      form.reset();
       Scaffold.of(context)
         ..removeCurrentSnackBar()
         ..showSnackBar(SnackBar(
