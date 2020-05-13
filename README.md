@@ -58,8 +58,7 @@ Input(
 );
 ```
 
-
-> **Dica**: Você pode personalizar a mensagem de erro usando o método `Validator.msg`
+> :bulb: **Dica**: Você pode personalizar a mensagem de erro usando o método `Validator.msg`
 
 ```dart
 Validators.required..msg("Please enter some text")
