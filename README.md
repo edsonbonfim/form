@@ -58,15 +58,12 @@ Input(
 );
 ```
 
----
-**Dica:**
 
-Você pode personalizar a mensagem de erro usando o método `Validator.msg`
+> **Dica**: Você pode personalizar a mensagem de erro usando o método `Validator.msg`
 
 ```dart
 Validators.required..msg("Please enter some text")
 ```
----
 
 ### 3. Crie um botão para validar e enviar o formulário
 
