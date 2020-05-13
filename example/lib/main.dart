@@ -1,3 +1,4 @@
+import 'package:example/validation.dart';
 import 'package:flutter/material.dart';
 
 import 'login_form.dart';
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text("Form"),
         ),
-        body: LoginForm(),
+        body: MyCustomForm(),
       ),
     );
   }

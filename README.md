@@ -6,160 +6,92 @@ Uma biblioteca para validar formulários de forma simples e completa.
 
 O `form` atualmente está em sua versão beta. Isso significa que todas as APIs deste pacote estão em fase beta. Elas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de issues ou de PRs.
 
-# Validar um formulário
+## Criar um formulário com validação
 
-Um dos principais recursos de um aplicativo é permitir a entrada de informações pelo usuário, e na grande maioria, essas entradas são feitas por meio de formulários; aplicativos de médio e grande porte podem conter dezenas ou até centenas de formulários e, trabalhar com essa quantidade de formulários na forma proposta pelo flutter, pode ser bem inconveniente e trabalhoso.
+Os aplicativos geralmente exigem que os usuários insiram informações em um campo de texto. Por exemplo, você pode exigir que os usuários efetuem login com uma combinação de endereço de email e senha.
 
-Diante dessa dificuldade, surgiu a biblioteca `form`. A proposta é tornar simples a manipulação de formulários e, ao mesmo tempo, disponibilizar uma API poderosa e completa.
+Para tornar os aplicativos seguros e fáceis de usar, verifique se as informações que o usuário forneceu são válidas. Se o usuário tiver preenchido corretamente o formulário, processe as informações. Se o usuário enviar informações incorretas, exiba uma mensagem de erro amigável informando o que deu errado.
 
-Quase todo aplicativo possui um sistema de login. Para realizar o login, normalmente temos um formulário com dois inputs e, por esses motivos, escolhemos esse formulário para usar-mos nos exemplos.
+Neste exemplo, saiba como adicionar validação a um formulário que possui um único campo de texto usando as seguintes etapas:
 
-Dê uma olhada em como é feito um formulário de login, do jeito proposto pelo flutter, com o mínimo de validação.
+1. Crie um `FormInput` com uma tag única para identifica-lo.
+2. Adicione um `Input` com as validações necessárias
+3. Crie um botão para validar e enviar o formulário
 
-```dart
-class LoginForm extends StatefulWidget {
-  @override
-  _LoginFormState createState() => _LoginFormState();
-}
+### 1. Crie um `FormInput` com uma tag única para identifica-lo.
 
-class _LoginFormState extends State<LoginForm> {
-  final formKey = GlobalKey<FormState>();
+Primeiro, crie um `FormInput`. O `FormInput` widget atua como um contêiner para agrupar e validar vários campos de formulário.
 
-  final usernameKey = GlobalKey<FormFieldState>();
-  final passwordKey = GlobalKey<FormFieldState>();
-
-  TextEditingController username;
-  TextEditingController password;
-
-  @override
-  void initState() {
-    super.initState();
-    username = TextEditingController();
-    password = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    username.dispose();
-    password.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            key: usernameKey,
-            controller: username,
-            validator: (value) {
-              if (value.isEmpty) {
-                return "This field is required";
-              }
-              if (value.length < 6) {
-                return "Please lengthen this text to 6 characters or more";
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-              labelText: "Username",
-            ),
-          ),
-          TextFormField(
-            key: passwordKey,
-            controller: password,
-            validator: (value) {
-              if (value.isEmpty) {
-                return "This field is required";
-              }
-
-              String regex = r"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$";
-
-              if (!RegExp(regex).hasMatch(value)) {
-                return "Your password must be have at least 8 characters long, 1 uppercase & 1 lowercase character and 1 number";
-              }
-
-              return null;
-            },
-            decoration: InputDecoration(
-              labelText: "Password",
-            ),
-          ),
-          RaisedButton(
-            child: Text("Login"),
-            onPressed: () {
-              if (formKey.currentState.validate()) {
-                Scaffold.of(context).showSnackBar(
-                  SnackBar(content: Text("Logged")),
-                );
-                print(username.text);
-                print(password.text);
-              } else {
-                print(usernameKey.currentState.errorText);
-                print(passwordKey.currentState.errorText);
-              }
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-```
-
-Agora, vamos ver como fazemos isso usando o form.
+Ao criar o formulário, forneça uma tag. Isso identifica exclusivamente o `FormInput` e permite a validação do formulário em uma etapa posterior.
 
 ```dart
-class LoginForm extends StatelessWidget {
+// Define a custom FormInput widget.
+class MyCustomForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Build a FormInput widget.
     return FormInput(
-      tag: "login",
+      // This tag uniquely identifies the FormInput
+      // widget and allows validation of the form.
+      tag: "myCustomForm",
       child: Column(
-        children: [
-          Input(
-            tag: "username",
-            validators: [
-              Validators.required,
-              Validators.minLength(6),
-            ],
-            decoration: const InputDecoration(
-              labelText: "Username",
-            ),
-          ),
-          Input(
-            tag: "password",
-            validators: [
-              Validators.required,
-              Validators.strongPassword(),
-            ],
-            decoration: const InputDecoration(
-              labelText: "Password",
-            ),
-          ),
-          RaisedButton(
-            child: Text("login"),
-            onPressed: () {
-              if (FormInput.get("login").validate()) {
-                Scaffold.of(context).showSnackBar(
-                  SnackBar(content: Text("Logged")),
-                );
-                print(Input.get("username").text);
-                print(Input.get("password").text);
-              } else {
-                print(Input.get("username").errorText);
-                print(Input.get("password").errorText);
-              }
-            },
-          ),
+        children: <Widget>[
+          // Add Inputs and RaisedButton here.
         ],
       ),
     );
   }
 }
 ```
+
+### 2. Adicione um `Input` com as validações necessárias
+
+Embora `FormInput` esteja no lugar, não há como os usuários digitarem texto nele. Esse é o trabalho de um `Input`. O `Input` renderiza um campo de texto no estilo material design e pode exibir erros de validação quando eles ocorrem.
+
+Valide a entrada fornecendo uma lista de `Validator` para o `Input`.
+
+```dart
+Input(
+  validators: [
+    Validators.required,
+  ],
+);
+```
+
+---
+**Dica:**
+
+Você pode personalizar a mensagem de erro usando o método `Validator.msg`
+
+```dart
+Validators.required..msg("Please enter some text")
+```
+---
+
+### 3. Crie um botão para validar e enviar o formulário
+
+Agora que você possui um formulário com um campo de texto, forneça um botão no qual o usuário possa tocar para enviar as informações.
+
+Quando o usuário tentar enviar o formulário, verifique se o formulário é válido. Se estiver, exiba uma mensagem de sucesso. Se não estiver (o campo de texto não possui conteúdo), exibir a mensagem de erro.
+
+```dart
+RaisedButton(
+  onPressed: () {
+    // validate returns true if the form is valid, otherwise false.
+    if (FormInput.get("myCustomForm").validate()) {
+      // If the form is valid, display a snackbar. In the real world,
+      // you'd often call a server or save the information in a database.
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text('Processing Data')));
+    }
+  },
+  child: Text('Submit'),
+);
+```
+
+### Exemplo
+
+Veja esse [exemplo completo](./example/lib/validation.dart), jutando todas as partes.
 
 # Recuperar o valor de um campo de texto
 
@@ -179,5 +111,7 @@ Input(
 
 ```dart
 // Retorna o texto que o usuário inseriu no input
+// Note que o parametro passado para o método `Input.get` deve ser
+// o mesmo que o informado na tag do input.
 Input.get("username").text; 
 ```
