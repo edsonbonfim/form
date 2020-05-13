@@ -2,7 +2,15 @@
 
 Uma biblioteca para validar formulários de forma simples e completa.
 
-# Versão Beta
+- **[ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
+
+- **[Criar um formulário com validação](#criar-um-formul%c3%a1rio-com-valida%c3%a7%c3%a3o)**
+
+- **[Recuperar o valor de um campo de texto](#recuperar-o-valor-de-um-campo-de-texto)**
+
+- **[Manipular alterações em um campo de texto](#manipular-altera%c3%a7%c3%b5es-em-um-campo-de-texto)
+
+## ATENÇÃO: API Experimental
 
 O `form` atualmente está em sua versão beta. Isso significa que todas as APIs deste pacote estão em fase beta. Elas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de issues ou de PRs.
 
@@ -58,7 +66,7 @@ Input(
 );
 ```
 
-> :bulb: **Dica**: Você pode personalizar a mensagem de erro usando o método `Validator.msg`
+> :bulb: **Dica**: Você pode personalizar a mensagem de erro usando o método `Validator.msg(errorText)`
 
 ```dart
 Validators.required..msg("Please enter some text")
@@ -85,11 +93,9 @@ RaisedButton(
 );
 ```
 
-### Exemplo
+> Veja esse [exemplo](./example/lib/validation.dart) para mais informações
 
-Veja esse [exemplo completo](./example/lib/validation.dart), jutando todas as partes.
-
-# Recuperar o valor de um campo de texto
+## Recuperar o valor de um campo de texto
 
 Recuperar o texto que um usuário inseriu em um campo de texto usando o `form` é muito simples, basta adicionar uma `tag` ao widget `Input` e usar `Input.get(tag).text` para recuperar este valor.
 
@@ -111,3 +117,70 @@ Input(
 // o mesmo que o informado na tag do input.
 Input.get("username").text; 
 ```
+
+> Veja esse [exemplo](./example/lib/login.dart) para mais informações
+
+## Manipular alterações em um campo de texto
+
+Em alguns casos, é útil executar uma função de callback sempre que o texto em um campo de texto for alterado. Por exemplo, convém criar uma tela de pesquisa com funcionalidade de preenchimento automático, na qual deseja atualizar os resultados conforme o usuário digita.
+
+Como você executa uma função de callback toda vez que o texto muda? Com o `form`, você tem duas opções:
+
+1. Forneça um `onChanged()` retorno de chamada para o `Input`.
+2. Usando `Input.get()`.
+
+### 1. Forneça um `onChanged()` retorno de chamada para o `Input`
+
+A abordagem mais simples é fornecer um `onChanged()` retorno de chamada para o `Input`. Sempre que o texto muda, o retorno de chamada é invocado.
+
+Neste exemplo, imprima o valor atual do campo de texto no console sempre que o texto for alterado.
+
+```dart
+Input(
+  onChanged: (text) {
+    print("First input: $text");
+  },
+);
+```
+
+### 2. Usando `Input.get()`
+
+Para ser notificado quando o texto for alterado, ouça o controlador usando o `addListener()` método, seguindo as seguintes etapas:
+
+1. Crie uma `tag` para o `Input`.
+3. Crie uma função para imprimir o valor mais recente.
+4. Ouça o controlador para alterações.
+
+#### Crie uma `tag` para o `Input`
+
+```dart
+Input(tag: "search");
+```
+
+#### Crie uma função para imprimir o valor mais recente
+
+Você precisa de uma função para executar sempre que o texto for alterado. Crie um método que imprima o valor atual do campo de texto.
+
+```dart
+_printLatestValue(String text) {
+  print("Second input: $text");
+}
+```
+
+#### Ouça o controlador para alterações
+
+Por fim, ouça as alterações chamando o método `_printLatestValue()`. Use o `addListener()` método para esse fim. Se desejar, pode parar de ouvir as alterações a qualquer momento usando o método `removeListener()`, porém, o `form` cuida de de descartar esse ouvinte automaticamente quando não for mais necessário, assim como anexa-lo novamente caso seja requisitado.
+
+> :fire: **Nota**: Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o Input já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback`.
+
+```dart
+@override
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPersistentFrameCallback((_) {
+    Input.get("search").addListener(_printLatestValue);
+  });
+}
+```
+
+> Veja esse [exemplo](./example/lib/input_changes.dart) para mais informações

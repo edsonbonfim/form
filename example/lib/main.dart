@@ -1,7 +1,5 @@
-import 'package:example/validation.dart';
+import 'package:example/input_changes.dart';
 import 'package:flutter/material.dart';
-
-import 'login_form.dart';
 
 void main() => runApp(App());
 
@@ -13,7 +11,7 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text("Form"),
         ),
-        body: MyCustomForm(),
+        body: InputChangesForm(),
       ),
     );
   }

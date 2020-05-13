@@ -451,6 +451,21 @@ class _InputBaseState extends State<InputBase> {
 
   bool get isValid => _errorText == null;
 
+  void Function(String) _listener;
+
+  void addListener(void Function(String) listener) {
+    assert(listener != null);
+    _listener = listener;
+    _controller.addListener(_attachListener);
+  }
+
+  void removeListener(void Function(String) listener) {
+    _controller.removeListener(_attachListener);
+    _listener = null;
+  }
+
+  void _attachListener() => _listener(text);
+
   @override
   void initState() {
     super.initState();
