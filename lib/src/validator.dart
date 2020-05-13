@@ -1,7 +1,7 @@
 import 'package:validators/validators.dart' as validator;
 
 abstract class Validator {
-  Future<bool> validate(String str);
+  bool validate(String str);
 
   String _customErrorText;
 
@@ -19,7 +19,7 @@ class ContainsValidator extends Validator {
   final dynamic seed;
 
   @override
-  Future<bool> validate(String str) async => validator.contains(str, seed);
+  bool validate(String str) => validator.contains(str, seed);
 
   @override
   String get errorText => "Input should contains \"$seed\" seed";
@@ -32,7 +32,7 @@ class EqualsValidator extends Validator {
   final dynamic comparison;
 
   @override
-  Future<bool> validate(String str) async => validator.equals(str, comparison);
+  bool validate(String str) => validator.equals(str, comparison);
 
   @override
   String get errorText => "Input shoud be equals to $comparison";
@@ -45,7 +45,7 @@ class AfterValidator extends Validator {
   final dynamic date;
 
   @override
-  Future<bool> validate(String str) async => validator.isAfter(str, date);
+  bool validate(String str) => validator.isAfter(str, date);
 
   @override
   String get errorText =>
@@ -55,7 +55,7 @@ class AfterValidator extends Validator {
 /// Check if the string contains only letters (a-zA-Z)
 class AlphaValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isAlpha(str);
+  bool validate(String str) => validator.isAlpha(str);
 
   @override
   String get errorText => "Input should contains only letters (a-zA-Z)";
@@ -64,7 +64,7 @@ class AlphaValidator extends Validator {
 /// Check if the string contains only letters and numbers
 class AlphanumericValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isAlphanumeric(str);
+  bool validate(String str) => validator.isAlphanumeric(str);
 
   @override
   String get errorText => "Input shoud contains only letters and numbers";
@@ -73,7 +73,7 @@ class AlphanumericValidator extends Validator {
 /// Check if the string contains ASCII chars only
 class AsciiValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isAscii(str);
+  bool validate(String str) => validator.isAscii(str);
 
   @override
   String get errorText => "Input should contains ASCII chars only";
@@ -82,7 +82,7 @@ class AsciiValidator extends Validator {
 /// Check if a string is base64 encoded
 class Base64Validator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isBase64(str);
+  bool validate(String str) => validator.isBase64(str);
 
   @override
   String get errorText => "Input should be base64 encoded";
@@ -95,7 +95,7 @@ class BeforeValidator extends Validator {
   final dynamic date;
 
   @override
-  Future<bool> validate(String str) async => validator.isBefore(str, date);
+  bool validate(String str) => validator.isBefore(str, date);
 
   @override
   String get errorText =>
@@ -109,8 +109,7 @@ class ByteLengthValidator extends Validator {
   final int min, max;
 
   @override
-  Future<bool> validate(String str) async =>
-      validator.isByteLength(str, min, max);
+  bool validate(String str) => validator.isByteLength(str, min, max);
 
   @override
   String get errorText => "Input length (in bytes) falls in a range";
@@ -119,7 +118,7 @@ class ByteLengthValidator extends Validator {
 /// Check if the string is a credit card
 class CreditCardValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isCreditCard(str);
+  bool validate(String str) => validator.isCreditCard(str);
 
   @override
   String get errorText => "Input shoud contains a valid credit card";
@@ -128,7 +127,7 @@ class CreditCardValidator extends Validator {
 /// Check if the string is a date
 class DateValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isDate(str);
+  bool validate(String str) => validator.isDate(str);
 
   @override
   String get errorText => "Input should be a date";
@@ -141,7 +140,7 @@ class DivisibleByValidator extends Validator {
   final dynamic n;
 
   @override
-  Future<bool> validate(String str) async => validator.isDivisibleBy(str, n);
+  bool validate(String str) => validator.isDivisibleBy(str, n);
 
   @override
   String get errorText =>
@@ -151,7 +150,7 @@ class DivisibleByValidator extends Validator {
 /// Check if the string is an email
 class EmailValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isEmail(str);
+  bool validate(String str) => validator.isEmail(str);
 
   @override
   String get errorText => "Input shoud contains a valid email";
@@ -160,7 +159,7 @@ class EmailValidator extends Validator {
 /// Check if the string is a float
 class FloatValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isFloat(str);
+  bool validate(String str) => validator.isFloat(str);
 
   @override
   String get errorText => "Input shoud be a float number";
@@ -176,7 +175,7 @@ class FQNDValidator extends Validator {
   final bool requireTld, allowUnderscores;
 
   @override
-  Future<bool> validate(String str) async => validator.isFQDN(
+  bool validate(String str) => validator.isFQDN(
         str,
         requireTld: requireTld,
         allowUnderscores: allowUnderscores,
@@ -190,7 +189,7 @@ class FQNDValidator extends Validator {
 /// Check if the string contains any full-width chars
 class FullWidthValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isFullWidth(str);
+  bool validate(String str) => validator.isFullWidth(str);
 
   @override
   String get errorText => "Input should contains any full-width chars";
@@ -199,7 +198,7 @@ class FullWidthValidator extends Validator {
 /// Check if the string contains any half-width chars
 class HalfWidthValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isHalfWidth(str);
+  bool validate(String str) => validator.isHalfWidth(str);
 
   @override
   String get errorText => "Input should contains any half-width chars";
@@ -208,7 +207,7 @@ class HalfWidthValidator extends Validator {
 /// Check if the string is a hexadecimal number
 class HexadecimalValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isHexadecimal(str);
+  bool validate(String str) => validator.isHexadecimal(str);
 
   @override
   String get errorText => "Input shoud contains a hexadecimal number";
@@ -217,7 +216,7 @@ class HexadecimalValidator extends Validator {
 /// Check if the string is a hexadecimal color
 class HexColorValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isHexColor(str);
+  bool validate(String str) => validator.isHexColor(str);
 
   @override
   String get errorText => "Input should contains a hexadecimal color";
@@ -230,7 +229,7 @@ class InValidator extends Validator {
   final List<dynamic> values;
 
   @override
-  Future<bool> validate(String str) async => validator.isIn(str, values);
+  bool validate(String str) => validator.isIn(str, values);
 
   @override
   String get errorText => "Input shound contains in a array of allowed values";
@@ -239,7 +238,7 @@ class InValidator extends Validator {
 /// Check if the string is an integer
 class IntValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isInt(str);
+  bool validate(String str) => validator.isInt(str);
 
   @override
   String get errorText => "Input should contains an integer";
@@ -252,7 +251,7 @@ class IPValidator extends Validator {
   final dynamic version;
 
   @override
-  Future<bool> validate(String str) async => validator.isIP(str, version);
+  bool validate(String str) => validator.isIP(str, version);
 
   @override
   String get errorText => "Input should contains a valid IP version 4 or 6";
@@ -265,7 +264,7 @@ class ISBNValidator extends Validator {
   final dynamic version;
 
   @override
-  Future<bool> validate(String str) async => validator.isISBN(str, version);
+  bool validate(String str) => validator.isISBN(str, version);
 
   @override
   String get errorText =>
@@ -275,7 +274,7 @@ class ISBNValidator extends Validator {
 /// Check if the string is valid JSON
 class JsonValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isJSON(str);
+  bool validate(String str) => validator.isJSON(str);
 
   @override
   String get errorText => "Input should contains a valid JSON";
@@ -288,7 +287,7 @@ class LengthValidator extends Validator {
   final int min, max;
 
   @override
-  Future<bool> validate(String str) async => validator.isLength(str, min, max);
+  bool validate(String str) => validator.isLength(str, min, max);
 
   @override
   String get errorText => "Input should falls in a range";
@@ -297,7 +296,7 @@ class LengthValidator extends Validator {
 /// Check if the string is lowercase
 class LowercaseValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isLowercase(str);
+  bool validate(String str) => validator.isLowercase(str);
 
   @override
   String get errorText => "Input should be lowercase";
@@ -306,7 +305,7 @@ class LowercaseValidator extends Validator {
 /// Check if the string is a valid hex-encoded representation of a MongoDB ObjectId
 class MongoIdValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isMongoId(str);
+  bool validate(String str) => validator.isMongoId(str);
 
   @override
   String get errorText =>
@@ -316,7 +315,7 @@ class MongoIdValidator extends Validator {
 /// Check if the string contains one or more multibyte chars
 class MultibyteValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isMultibyte(str);
+  bool validate(String str) => validator.isMultibyte(str);
 
   @override
   String get errorText => "Input should contains one or more multibyte chars";
@@ -325,7 +324,7 @@ class MultibyteValidator extends Validator {
 /// Check if the string contains only numbers
 class NumericValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isNumeric(str);
+  bool validate(String str) => validator.isNumeric(str);
 
   @override
   String get errorText => "Input should contains only numbers";
@@ -334,7 +333,7 @@ class NumericValidator extends Validator {
 /// Check if the string contains any surrogate pairs chars
 class SurrogatePairValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isSurrogatePair(str);
+  bool validate(String str) => validator.isSurrogatePair(str);
 
   @override
   String get errorText => "Input should contains any surrogate pairs chars";
@@ -343,7 +342,7 @@ class SurrogatePairValidator extends Validator {
 /// Check if the string is uppercase
 class UppercaseValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isUppercase(str);
+  bool validate(String str) => validator.isUppercase(str);
 
   @override
   String get errorText => "Input should be uppercase";
@@ -364,7 +363,7 @@ class URLValidator extends Validator {
   final bool requireTld, requireProtocol, allowUnderscore;
 
   @override
-  Future<bool> validate(String str) async => validator.isURL(
+  bool validate(String str) => validator.isURL(
         str,
         allowUnderscore: allowUnderscore,
         hostBlacklist: hostBlacklist,
@@ -385,7 +384,7 @@ class UUIDValidator extends Validator {
   final dynamic version;
 
   @override
-  Future<bool> validate(String str) async => validator.isUUID(str, version);
+  bool validate(String str) => validator.isUUID(str, version);
 
   @override
   String get errorText =>
@@ -395,7 +394,7 @@ class UUIDValidator extends Validator {
 /// Check if the string contains a mixture of full and half-width chars
 class VariableWidthValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => validator.isVariableWidth(str);
+  bool validate(String str) => validator.isVariableWidth(str);
 
   @override
   String get errorText =>
@@ -409,7 +408,7 @@ class MatchesValidator extends Validator {
   final dynamic pattern;
 
   @override
-  Future<bool> validate(String str) async => validator.matches(str, pattern);
+  bool validate(String str) => validator.matches(str, pattern);
 
   @override
   String get errorText => "Input should matches the pattern";
@@ -422,7 +421,7 @@ class MinLengthValidator extends Validator {
   final int min;
 
   @override
-  Future<bool> validate(String str) async => str.length >= min;
+  bool validate(String str) => str.length >= min;
 
   @override
   String get errorText =>
@@ -436,7 +435,7 @@ class MaxLengthValidator extends Validator {
   final int max;
 
   @override
-  Future<bool> validate(String str) async => str.length > max;
+  bool validate(String str) => str.length > max;
 
   @override
   String get errorText => "Input length should be more than or equal to $max";
@@ -445,8 +444,20 @@ class MaxLengthValidator extends Validator {
 /// Check if the length of the input value is more than or equal to [max]
 class RequiredValidator extends Validator {
   @override
-  Future<bool> validate(String str) async => str.isNotEmpty;
+  bool validate(String str) => str.isNotEmpty;
 
   @override
   String get errorText => "This field is required";
+}
+
+class StrongPasswordValidator extends Validator {
+  @override
+  bool validate(String str) {
+    String regex = r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$";
+
+    return RegExp(regex).hasMatch(str);
+  }
+
+  @override
+  String get errorText => "Forneça uma senha mais forte";
 }
