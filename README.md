@@ -8,7 +8,7 @@ Uma biblioteca para validar formulários de forma simples e completa.
 
 - **[Recuperar o valor de um campo de texto](#recuperar-o-valor-de-um-campo-de-texto)**
 
-- **[Manipular alterações em um campo de texto](#manipular-altera%c3%a7%c3%b5es-em-um-campo-de-texto)
+- **[Manipular alterações em um campo de texto](#manipular-altera%c3%a7%c3%b5es-em-um-campo-de-texto)**
 
 ## ATENÇÃO: API Experimental
 
