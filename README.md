@@ -10,7 +10,7 @@ Uma forma simples e poderosa para manipulação de formulários em flutter. :roc
 
 - **[Manipular alterações em um campo de texto](#manipular-altera%c3%a7%c3%b5es-em-um-campo-de-texto)**
 
-- **[Lista de validações](#lista-de-valida%c3%a7%c3%b5es)**
+- **[Validators](#validators)**
 
 ## ATENÇÃO: API Experimental
 
@@ -187,7 +187,7 @@ void initState() {
 
 > Veja esse [exemplo](./example/lib/input_changes.dart) para mais informações
 
-### Lista de validações
+### Validators
 | Validator | Description |
 | :--- | :--- |
 | Validators.alpha | Check if the string contains only letters (a-zA-Z) |
