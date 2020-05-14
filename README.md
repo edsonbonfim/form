@@ -2,7 +2,7 @@
 
 Uma forma simples e poderosa para manipulação de formulários em flutter. :rocket: :zap:
 
-- **[:warning: ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
+- **[ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
 
 - **[Criar um formulário com validação](#criar-um-formul%c3%a1rio-com-valida%c3%a7%c3%a3o)**
 
@@ -184,3 +184,55 @@ void initState() {
 ```
 
 > Veja esse [exemplo](./example/lib/input_changes.dart) para mais informações
+
+### Lista de validações
+
+Esta é a lista de todas as validações prontas para uso no `Input` widget.
+
+Para uma descrição completa e forma de uso, veja a [API Reference](https://pub.dev/documentation/form/latest/form/Validators-class.html)
+
+```dart
+Input(
+  validators: [
+    Validators.alpha,
+    Validators.alphanumeric,
+    Validators.ascii,
+    Validators.base64,
+    Validators.lowercase,
+    Validators.mongoId,
+    Validators.multibyte,
+    Validators.numeric,
+    Validators.surrogatePair,
+    Validators.uppercase,
+    Validators.variableWidth,
+    Validators.creditCard,
+    Validators.date,
+    Validators.email,
+    Validators.isFloat,
+    Validators.fullWidth,
+    Validators.halfWidth,
+    Validators.hexadecimal,
+    Validators.hexColor,
+    Validators.isInt,
+    Validators.required,
+    Validators.json,
+    Validators.contains(),
+    Validators.equals(),
+    Validators.after(),
+    Validators.isBefore(),
+    Validators.byteLength(),
+    Validators.divisibleBy(),
+    Validators.fqnd(),
+    Validators.inValues(),
+    Validators.ip(),
+    Validators.isbn(),
+    Validators.length(),
+    Validators.minLength(),
+    Validators.maxLength(),
+    Validators.url(),
+    Validators.uuid(),
+    Validators.matches(),
+    Validators.strongPassword(),
+  ],
+);
+```
