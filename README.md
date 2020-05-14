@@ -1,8 +1,8 @@
 # Form
 
-Uma forma simples e poderosa para manipulação de formulários em flutter.
+Uma forma simples e poderosa para manipulação de formulários em flutter. 🚀⚡
 
-- **[ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
+- **[ATENÇÃO: API Experimental :warning:](#aten%c3%87%c3%83o-api-experimental)**
 
 - **[Criar um formulário com validação](#criar-um-formul%c3%a1rio-com-valida%c3%a7%c3%a3o)**
 
@@ -171,7 +171,7 @@ _printLatestValue(String text) {
 
 Por fim, ouça as alterações chamando o método `_printLatestValue()`. Use o `addListener()` método para esse fim. Se desejar, pode parar de ouvir as alterações a qualquer momento usando o método `removeListener()`, porém, o `form` cuida de de descartar esse ouvinte automaticamente quando não for mais necessário, assim como anexa-lo novamente caso seja requisitado.
 
-> :warning: **Nota**: Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o `Input` já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback()`.
+> :warning: **Atenção**: Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o `Input` já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback()`.
 
 ```dart
 @override
