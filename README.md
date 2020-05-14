@@ -1,6 +1,6 @@
 # Form
 
-Uma biblioteca para validar formulários de forma simples e completa.
+Uma forma simples e poderosa para manipulação de formulários em flutter.
 
 - **[ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
 
@@ -12,7 +12,7 @@ Uma biblioteca para validar formulários de forma simples e completa.
 
 ## ATENÇÃO: API Experimental
 
-O `form` atualmente está em sua versão beta. Isso significa que todas as APIs deste pacote estão em fase beta. Elas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de issues ou de PRs.
+O `form` atualmente está em sua versão beta. As API disnibilizadas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de issues ou de PRs.
 
 ## Criar um formulário com validação
 
