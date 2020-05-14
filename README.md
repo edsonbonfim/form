@@ -171,7 +171,7 @@ _printLatestValue(String text) {
 
 Por fim, ouça as alterações chamando o método `_printLatestValue()`. Use o `addListener()` método para esse fim. Se desejar, pode parar de ouvir as alterações a qualquer momento usando o método `removeListener()`, porém, o `form` cuida de de descartar esse ouvinte automaticamente quando não for mais necessário, assim como anexa-lo novamente caso seja requisitado.
 
-> :fire: **Nota**: Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o Input já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback`.
+> :warning: **Nota**: Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o `Input` já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback()`.
 
 ```dart
 @override
