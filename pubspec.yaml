@@ -1,6 +1,6 @@
 name: form
-description: Easy form validation and state management
-version: 0.0.2
+description: Uma forma simples e poderosa para manipulação de formulários em flutter.
+version: 0.0.3+1
 homepage: https://github.com/EdsonOnildoJR/form
 
 environment:
@@ -10,7 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   validators: ^2.0.0+1
-  rxdart: ^0.24.0
 
 dev_dependencies:
   flutter_test:

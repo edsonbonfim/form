@@ -96,7 +96,6 @@ class Input extends StatefulWidget {
     this.toolbarOptions,
     this.showCursor,
     this.autofocus = false,
-    this.obscuringCharacter = '•',
     this.obscureText = false,
     this.autocorrect = true,
     this.smartDashesType,
@@ -153,8 +152,6 @@ class Input extends StatefulWidget {
   final TextDirection textDirection;
 
   final bool autofocus;
-
-  final String obscuringCharacter;
 
   final bool obscureText;
 
@@ -262,7 +259,6 @@ class _InputState extends State<Input> {
       toolbarOptions: widget.toolbarOptions,
       readOnly: widget.readOnly,
       showCursor: widget.showCursor,
-      obscuringCharacter: widget.obscuringCharacter,
       obscureText: widget.obscureText,
       autocorrect: widget.autocorrect,
       smartDashesType: widget.smartDashesType ??
@@ -316,7 +312,6 @@ class InputBase extends StatefulWidget {
     this.toolbarOptions,
     this.showCursor,
     this.autofocus,
-    this.obscuringCharacter,
     this.obscureText,
     this.autocorrect,
     this.smartDashesType,
@@ -371,8 +366,6 @@ class InputBase extends StatefulWidget {
   final TextDirection textDirection;
 
   final bool autofocus;
-
-  final String obscuringCharacter;
 
   final bool obscureText;
 
@@ -517,7 +510,6 @@ class _InputBaseState extends State<InputBase> {
       toolbarOptions: widget.toolbarOptions,
       readOnly: widget.readOnly,
       showCursor: widget.showCursor,
-      obscuringCharacter: widget.obscuringCharacter,
       obscureText: widget.obscureText,
       autocorrect: widget.autocorrect,
       smartDashesType: widget.smartDashesType ??
