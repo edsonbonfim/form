@@ -1,8 +1,8 @@
 # Form
 
-Uma forma simples e poderosa para manipulação de formulários em flutter. 🚀⚡
+Uma forma simples e poderosa para manipulação de formulários em flutter. :rocket: :zap:
 
-- **[ATENÇÃO: API Experimental :warning:](#aten%c3%87%c3%83o-api-experimental)**
+- **[:warning: ATENÇÃO: API Experimental](#aten%c3%87%c3%83o-api-experimental)**
 
 - **[Criar um formulário com validação](#criar-um-formul%c3%a1rio-com-valida%c3%a7%c3%a3o)**
 
