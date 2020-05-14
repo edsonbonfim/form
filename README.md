@@ -210,19 +210,18 @@ void initState() {
 | Validators.surrogatePair | Check if the string contains any surrogate pairs chars |
 | Validators.uppercase | Check if the string is uppercase |
 | Validators.variableWidth | Check if the string contains a mixture of full and half-width chars |
-| Validators.after(dynamic date) | Check if the string is a date that's after the specified date
-| Validators.byteLength(int min, [int max]) | Check if the string is a date that's before the specified date
-| Validators.contains(dynamic seed) | Check if the string contains the seed
-| Validators.divisibleBy(dynamic n) | Check if the string is a number that's divisible by another
-| Validators.equals(dynamic comparison) | Check if the string matches the comparison
-| Validators.fqnd({bool requireTld: true, bool allowUnderscores: false}) | Check if the string is a fully qualified domain name (e.g. domain.com)
-| Validators.inValues(List values) | Check if the string is in a array of allowed values
-| Validators.ip([dynamic version]) | Check if the string is IP version 4 or 6
-| Validators.isBefore(dynamic date) | Check if the string is a date that's before the specified date
-| Validators.isbn([dynamic version]) | Check if the string is an ISBN (version 10 or 13)
-| Validators.length(int min, [int max]) | Check if the length of the string str falls in a range
-| Validators.matches(dynamic pattern) | Check if string matches the pattern
-| Validators.maxLength(int max) | Check if the length of the input value is more than or equal to max
-| Validators.minLength(int min) | Check if the length of the input value is less than or equal to min
-| Validators.url({List\<String> protocols: const ['http', 'https', 'ftp'], List\<String> hostWhitelist: const [], List\<String> hostBlacklist: const [], bool requireTld: true, bool requireProtocol: false, bool allowUnderscore: false}) | Check if the string is a URL
-| Validators.uuid([dynamic version]) | Check if the string is a UUID (version 3, 4 or 5)
+| Validators.after(dynamic date) | Check if the string is a date that's after the specified date |
+| Validators.byteLength(int min, [int max]) | Check if the string is a date that's before the specified date |
+| Validators.contains(dynamic seed) | Check if the string contains the seed |
+| Validators.divisibleBy(dynamic n) | Check if the string is a number that's divisible by another |
+| Validators.equals(dynamic comparison) | Check if the string matches the comparison |
+| Validators.fqnd({bool requireTld: true, bool allowUnderscores: false}) | Check if the string is a fully qualified domain name (e.g. domain.com)|
+| Validators.inValues(List values) | Check if the string is in a array of allowed values |
+| Validators.ip([dynamic version]) | Check if the string is IP version 4 or 6 |
+| Validators.isBefore(dynamic date) | Check if the string is a date that's before the specified date |
+| Validators.isbn([dynamic version]) | Check if the string is an ISBN (version 10 or 13) |
+| Validators.length(int min, [int max]) | Check if the length of the string str falls in a range |
+| Validators.matches(dynamic pattern) | Check if string matches the pattern |
+| Validators.maxLength(int max) | Check if the length of the input value is more than or equal to max |
+| Validators.minLength(int min) | Check if the length of the input value is less than or equal to min |
+| Validators.uuid([dynamic version]) | Check if the string is a UUID (version 3, 4 or 5) |
