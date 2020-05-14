@@ -26,7 +26,7 @@ Neste exemplo, saiba como adicionar validação a um formulário que possui um �
 2. Adicione um `Input` com as validações necessárias
 3. Crie um botão para validar e enviar o formulário
 
-### 1. Crie um `FormInput` com uma tag única para identifica-lo.
+#### 1. Crie um `FormInput` com uma tag única para identifica-lo.
 
 Primeiro, crie um `FormInput`. O `FormInput` widget atua como um contêiner para agrupar e validar vários campos de formulário.
 
@@ -52,7 +52,7 @@ class MyCustomForm extends StatelessWidget {
 }
 ```
 
-### 2. Adicione um `Input` com as validações necessárias
+#### 2. Adicione um `Input` com as validações necessárias
 
 Embora `FormInput` esteja no lugar, não há como os usuários digitarem texto nele. Esse é o trabalho de um `Input`. O `Input` renderiza um campo de texto no estilo material design e pode exibir erros de validação quando eles ocorrem.
 
@@ -72,7 +72,7 @@ Input(
 Validators.required..msg("Please enter some text")
 ```
 
-### 3. Crie um botão para validar e enviar o formulário
+#### 3. Crie um botão para validar e enviar o formulário
 
 Agora que você possui um formulário com um campo de texto, forneça um botão no qual o usuário possa tocar para enviar as informações.
 
@@ -129,7 +129,7 @@ Como você executa uma função de callback toda vez que o texto muda? Com o `fo
 1. Forneça um `onChanged()` retorno de chamada para o `Input`.
 2. Usando `Input.get()`.
 
-### 1. Forneça um `onChanged()` retorno de chamada para o `Input`
+#### 1. Forneça um `onChanged()` retorno de chamada para o `Input`
 
 A abordagem mais simples é fornecer um `onChanged()` retorno de chamada para o `Input`. Sempre que o texto muda, o retorno de chamada é invocado.
 
@@ -143,21 +143,21 @@ Input(
 );
 ```
 
-### 2. Usando `Input.get()`
+#### 2. Usando `Input.get()`
 
 Para ser notificado quando o texto for alterado, ouça o controlador usando o `addListener()` método, seguindo as seguintes etapas:
 
 1. Crie uma `tag` para o `Input`.
-3. Crie uma função para imprimir o valor mais recente.
-4. Ouça o controlador para alterações.
+2. Crie uma função para imprimir o valor mais recente.
+3. Ouça o controlador para alterações.
 
-#### Crie uma `tag` para o `Input`
+**Crie uma `tag` para o `Input`**
 
 ```dart
 Input(tag: "search");
 ```
 
-#### Crie uma função para imprimir o valor mais recente
+**Crie uma função para imprimir o valor mais recente**
 
 Você precisa de uma função para executar sempre que o texto for alterado. Crie um método que imprima o valor atual do campo de texto.
 
@@ -167,7 +167,7 @@ _printLatestValue(String text) {
 }
 ```
 
-#### Ouça o controlador para alterações
+**Ouça o controlador para alterações**
 
 Por fim, ouça as alterações chamando o método `_printLatestValue()`. Use o `addListener()` método para esse fim. Se desejar, pode parar de ouvir as alterações a qualquer momento usando o método `removeListener()`, porém, o `form` cuida de de descartar esse ouvinte automaticamente quando não for mais necessário, assim como anexa-lo novamente caso seja requisitado.
 
