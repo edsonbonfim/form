@@ -10,6 +10,8 @@ Uma forma simples e poderosa para manipulação de formulários em flutter. :roc
 
 - **[Manipular alterações em um campo de texto](#manipular-altera%c3%a7%c3%b5es-em-um-campo-de-texto)**
 
+- **[Lista de validações](#lista-de-valida%c3%a7%c3%b5es)**
+
 ## ATENÇÃO: API Experimental
 
 O `form` atualmente está em sua versão beta. As API disnibilizadas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de issues ou de PRs.
@@ -187,7 +189,7 @@ void initState() {
 
 ### Lista de validações
 | Validator | Description |
-| --- | --- |
+| :--- | :--- |
 | Validators.alpha | Check if the string contains only letters (a-zA-Z) |
 | Validators.alphanumeric | Check if the string str contains only letters and numbers |
 | Validators.ascii | Check if the string contains ASCII chars only |
@@ -215,7 +217,7 @@ void initState() {
 | Validators.contains(dynamic seed) | Check if the string contains the seed |
 | Validators.divisibleBy(dynamic n) | Check if the string is a number that's divisible by another |
 | Validators.equals(dynamic comparison) | Check if the string matches the comparison |
-| Validators.fqnd({bool requireTld: true, bool allowUnderscores: false}) | Check if the string is a fully qualified domain name (e.g. domain.com)|
+| Validators.fqnd({bool requireTld: true, bool allowUnderscores: false}) | Check if the string is a fully qualified domain name (e.g. domain.com) |
 | Validators.inValues(List values) | Check if the string is in a array of allowed values |
 | Validators.ip([dynamic version]) | Check if the string is IP version 4 or 6 |
 | Validators.isBefore(dynamic date) | Check if the string is a date that's before the specified date |
