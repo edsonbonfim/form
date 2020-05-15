@@ -14,7 +14,7 @@ Consulte [CHANGELOG](https://github.com/edsonbonfim/form/blob/master/CHANGELOG.m
 
 Envie solicitações de recursos e erros no [rastreador de problemas](https://github.com/edsonbonfim/form/issues).
 
-# Créditos
+## Créditos
 
 - [Edson Bonfim](https://github.com/edsonbonfim)
 - [Todos os contribuidores](https://github.com/edsonbonfim/form/graphs/contributors)

@@ -14,7 +14,7 @@ See [CHANGELOG](https://github.com/edsonbonfim/form/blob/master/CHANGELOG.md) fo
 
 Submit feature requests and errors on the [problem tracker](https://github.com/edsonbonfim/form/issues).
 
-# Credits
+## Credits
 
 - [Edson Bonfim](https://github.com/edsonbonfim)
 - [All Contributors](https://github.com/edsonbonfim/form/graphs/contributors)
