@@ -1,3 +1,6 @@
+## [0.0.3+3] - May 14, 2020
+* Updated documentation.
+
 ## [0.0.3+2] - May 13, 2020
 * Fix pub.dev issues.
 
