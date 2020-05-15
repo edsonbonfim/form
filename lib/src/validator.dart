@@ -1,3 +1,5 @@
+library validator;
+
 import 'package:validators/validators.dart' as validator;
 
 abstract class Validator {
