@@ -1,14 +1,14 @@
-# Personalizar mensagem de erro
+# Customize error message
 
-Você pode personalizar a mensagem de erro em cada `Input` usando o método `Validator.msg()`
+You can customize the error message on each `Input` using the `Validator.msg()` method.
 
 ```dart
 Input(
   "email",
   validators: [
-    Validators.email..msg("Insira um endereço de e-mail válido"),
+    Validators.email..msg("This field should contains a valid email address"),
   ],
 ),
 ```
 
-> Seria interessante poder alterar a mensagem de um validator de forma global. [Contribuições](https://github.com/edsonbonfim/form/fork) são bem vindas.
+> It would be interesting to be able to change a validator's message globally. [Contributions](https://github.com/edsonbonfim/form/fork) are welcome.

@@ -1,6 +1,6 @@
-# Criar um input com validação
+# Create an input with validation
 
-Neste exemplo, saiba como adicionar validação a um input de email.
+In this example, learn how to add validation to an email input.
 
 ```dart
 Input(
@@ -9,16 +9,15 @@ Input(
 ),
 ```
 
-Agora basta validar se o texto informado pelo usuário é um endereço de email válido.
+Now it is enough to validate if the text entered by the user is a valid email address.
 
 ```dart
 // Retorna [true] se for um email válido, caso contrário, retorna [false]
 Input.get("email").validate();
 ```
 
-!> Note que a `tag` usada para construir o `Input` deve ser a mesma usada no método `Input.get()`. Neste exemplo usamos a tag `"email"`.
+!> Note that the the `tag` used to build the `Input` must be the same used in the method `Input.get()`. In this example we use the tag `"email"`.
 
-> Se o input estiver dentro de um `FormInput`, ele será automáticamente validado quando o formulário for validado.
+> If the input is within one `FormInput`, it will be automatically validated when the form is validated.
 
-> Consulte a [tabela](list-validators.md) para ver todos os `Validators` disponíveis, ou [crie seu próprio `Validator`](create-validator.md)
-
+> Consult the [table](list-validators.md) to see all `Validators` available, or [`create your own Validator`](create-validator.md)

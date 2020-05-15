@@ -1,6 +1,6 @@
-# Exibir validações em tempo real
+# Display real-time validations
 
-É possível receber feedback imediato enquanto digita em um campo de texto usando o parâmetro `autovalidate`.
+It is possible to receive immediate feedback while typing in a text field using the parameter `autovalidate`.
 
 ```dart
 Input(

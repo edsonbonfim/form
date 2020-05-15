@@ -1,10 +1,10 @@
-# Recuperar mensagem de erro
+# Retrieve error message
 
-Em alguns casos, é necessário obter qual a mensagem de erro após a validação de um formulário ou input. Neste exemplo, saiba como recuperar e exibir no console a mensagem de erro.
+In some cases, it is necessary to obtain the error message after validating a form or input. In this example, learn how to retrieve and display the error message on the console.
 
-> Quando um formulário ou input é validado, form cuida de mostrar a mensagem de erro automáticamente.
+> When a form or input is validated, form takes care of showing the error message automatically.
 
-Primeiro, vamos criar um campo de texto para um endereço de e-mail.  
+First, let's create a text field for an email address.
 
 ```dart
 Input(
@@ -13,7 +13,7 @@ Input(
 );
 ```
 
-Agora vamos validar o input. Se o e-mail informado pelo usuário não for válido, exibimos a mensagem de erro no console.
+Now let's validate the input. If the email entered by the user is not valid, we display the error message on the console.
 
 ```dart
 if (!Input.get("email").validate()) {

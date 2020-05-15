@@ -1,25 +1,25 @@
-# Criar seu próprio Validator
+# Create your own Validator
 
-Form disponibiliza dezenas de `Validators` prontos para uso, entretando, em alguns casos é necessário criar uma regra personalizada de validação.
+Form provides dozens of `Validators` ready to use, however, in some cases it is necessary to create a custom validation rule.
 
-> Fique atento a [lista](list-validators.md) de `Validators` para ver todas as opções disponíveis. 
+> Stay tuned to the [list](list-validators.md) of `Validators` to see all available options.
 
-Neste exemplo, saiba como criar e usar um `Validator` que verifica se o `Input` possui a palavra `"form"` usando as seguintes etapas:
+In this example, learn how to create and use one `Validator` that checks if you `Input` have the word `"form"` using the following steps:
 
-1. Criar uma classe que extende `Validator`.
-2. Implementar o método `validate()`.
-3. Definir uma mensagem de erro.
-4. Usar o `Validator` em um `Input`
+1. Create a class that extends `Validator`.
+2. Implement the `validate()` method.
+3. Define an error message.
+4. Use `Validator` in an `Input`
 
-> Essa funcionalidade está disponivel no form usando `Validators.contains(["form"])`, mas usaremos esse exemplo devido a dificuldade de encontrar uma lógica de validação que ainda não está disponível no form.
+> This functionality is available in the form using `Validators.contains(["form"])`, but we will use this example due to the difficulty of finding validation logic that is not yet available in the form.
 
-#### 1. Criar uma classe que extende Validator.
+#### 1. Create a class that extends Validator.
 
 ```dart
 class MyCustomValidator extends Validator {}
 ```
 
-#### 2. Implementar o método validate().
+#### 2. Implement the validate() method.
 
 ```dart
 class MyCustomValidator extends Validator {
@@ -28,7 +28,7 @@ class MyCustomValidator extends Validator {
 }
 ```
 
-#### 3. Definir uma mensagem de erro.
+#### 3. Define an error message.
 
 ```dart
 class MyCustomValidator extends Validator {
@@ -36,11 +36,11 @@ class MyCustomValidator extends Validator {
   bool validate(String str) => str.contains("form");
 
   @override
-  String get errorText => 'Este campo de texto deve conter a palavra "form"';
+  String get errorText => 'This field should contains the "form" word';
 }
 ```
 
-#### 4. Usar o Validator em um Input
+#### 4. Use the Validator on an Input
 
 ```dart
 Input(

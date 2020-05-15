@@ -1,43 +1,43 @@
-# Por quê form?
+# Why form?
 
-> Form foi pensado para ser extremamente fácil de usar.
+> Form was thought to be extremely easy to use.
 
-## Introdução
+## Introduction
 
-Os aplicativos geralmente exigem que os usuários insiram informações em um campo de texto. Por exemplo, você pode exigir que os usuários efetuem login com uma combinação de endereço de email e senha.
+Applications generally require users to enter information in a text field. For example, you can require users to log in with a combination of email address and password.
 
-Para tornar os aplicativos seguros e fáceis de usar, as informações que o usuário forneceu devem ser verificadas. Se o usuário tiver preenchido corretamente o formulário, processe as informações. Se o usuário enviar informações incorretas, exiba uma mensagem de erro amigável informando o que deu errado.
+To make applications safe and easy to use, the information the user has provided must be verified. If the user has completed the form correctly, process the information. If the user submits incorrect information, display a friendly error message stating what went wrong.
 
-## Form e TextFormField
+## Form and TextFormField
 
-Podemos obter as caracteristicas acima usando widgets padrões do flutter como o `Form` e o `TextFormField`. O `Form` atua como um contêiner para agrupar e validar vários `TextFormField`.
+We can obtain the above features using standard flutter widgets like o `Form` and o `TextFormField`. The `Form` acts as a container to group and validate several `TextFormField`.
 
-## Então, por que usar o form?
+## So, why use the form?
 
-Usar os widgets padrões do flutter em pequenos projetos podem ser uma boa opção, porém, gerenciar formulários em aplicações de médio e grande porte pode rapidamente tornar seu código grande e clicê.
+Using standard flutter widgets for small projects can be a good option, however, managing forms in medium and large applications can quickly make your code big and clickable.
 
-Veja um pouco do que o form é capaz:
+See a little of what the form is capable of:
 
-* Dezenas de validações prontas para uso e personalizáveis.
+* Dozens of validations ready to use and customizable.
 
   ```dart
   // Cria um input que é obrigatório e deve conter um email válido 
   Input("email", validators: [Validators.required, Validators.email]);
   ```
 
-* Crie seus próprios `Validator` de forma fácil e organizada.
+* Create your own `Validator` in an easy and organized way.
 
-* Acesse formulários e inputs em qualquer lugar do seu código, **sem depender** do `context`. Todas as informações que você precisa estão disponíveis; chega de usar `GlobalKey` para recuperar a mensagem de erro de um `TextFormField` ou validar um `Form`.
+* Access forms and inputs anywhere in your code, **without depending** on `context`. All the information you need is available; enough to use `GlobalKey` to retrieve an error message `TextFormField` or validate a `Form`.
 
   ```dart
     FormInput.get("login"); // Retorna o formulário de login
     Input.get("email"); // Retorna o input email
   ```
 
-* Pare agora mesmo de se preocupar com a memória que os formulários estão consumindo. O form gerencia todos os recursos de forma inteligente para você focar no que realmente importa.
+* Stop worrying about the memory forms are consuming right now. The form manages all resources intelligently so you can focus on what really matters.
 
-* E muito mais... :rocket::zap:
+* And much more... :rocket::zap:
 
-# Não encontrei a funcionalidade que procurava :\
+# I didn't find the functionality I was looking for :\
 
-O form está crescendo a cada dia, caso você tenha sugestões de novas funcionalidades, ficaremos felizes em discutir sobre elas. Por favor, nos envie sua sugestão abrindo uma [issue](https://github.com/edsonbonfim/form/issues). :smile:
+The form is growing every day, if you have suggestions for new features, we would be happy to discuss them. Please send us your suggestion by opening an [issue](https://github.com/edsonbonfim/form/issues). :smile:

@@ -1,0 +1,3 @@
+- Traduções
+  - [en-us](/)
+  - [pt-br](/pt-br/)

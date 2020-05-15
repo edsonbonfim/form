@@ -1,1 +1,3 @@
-* [PT-BR]()
+- Translations
+  - [us](/)
+  - [pt-br](/pt-br/)

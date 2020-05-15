@@ -1,12 +1,12 @@
-# Recuperar o valor de um Input
+# Retrieve the value of an Input
 
-Recuperar o texto que um usuário inseriu em um campo de texto usando o `form` é muito simples, basta adicionar uma `tag` ao widget `Input` e usar `Input.get(tag).text` para recuperar este valor.
+Retrieving the text that a user entered into a text field using form is very simple, just add one `tag` to the widget `Input` and use it `Input.get(tag).text` to retrieve this value.
 
-Algumas informações sobre a propriedade `tag`:
+Some information about the property `tag`:
 
-* A `tag` pode ser qualquer valor e será usada para identificar o input.
-* A `tag` informada deve ser única.
-* Usar a mesma `tag` em mais de um `Input` resultará em um erro.
+* `tag` can be any value and will be used to identify the input.
+* `tag` informed must be unique.
+* Using it `tag` in more than one will `Input` result in an error.
 
 ```dart
 Input(

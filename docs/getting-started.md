@@ -1,27 +1,27 @@
-# Iniciando
+# Getting Started
 
-## Instalação
+## Installation
 
-A primeira coisa que precisamos fazer é adicionar o package form como uma dependência no `pubspec.yaml`.
+The first thing we need to do is add the package form as a dependency on `pubspec.yaml`.
 
 ```yaml
 dependencies:
   form: ^0.0.3+1
 ```
 
-Agora precisamos instalar o form.
+Now we need to install the form.
 
 ```bash
 flutter pub get
 ```
 
-!> Execute o comando no mesmo diretório em que se encontra o arquivo `pubspec.yaml`.
+!> Run the command in the same directory as the file `pubspec.yaml`.
 
-?> Como alternativa, seu editor pode suportar `flutter pub get`. Verifique os documentos do seu editor para saber mais.
+?> Alternatively, your editor can support it `flutter pub get`. Check your publisher’s documents to learn more.
 
-## Importação
+## Import
 
-Agora, no seu código Dart, você pode usar:
+Now, in your Dart code, you can use:
 
 ```dart
 import 'package:form/form.dart';

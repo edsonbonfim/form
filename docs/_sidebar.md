@@ -1,24 +1,24 @@
-- Introdução
+- Introduction
 
-  - [Iniciando](getting-started.md)
-  - [Por quê form?](why-form.md)
-  - [API Experimental](experimental-api.md)
+  - [Getting Started](getting-started.md)
+  - [Why form?](why-form.md)
+  - [Experimental API](experimental-api.md)
 
 - Input
 
-  - [Recuperar o valor de um Input](input-text.md)
-  - [Escutar alterações em um Input](input-listener.md)
+  - [Retrieve the value of an Input](input-text.md)
+  - [Listen for changes to an Input](input-listener.md)
 
-- Validação
+- Validation
 
-  - [Criar um input com validação](validate-input.md)
-  - [Criar um formulário com validação](validate-form.md)
-  - [Personalizar mensagem de erro](custom-error-text.md)
-  - [Criar seu próprio Validator](create-validator.md)
-  - [Recuperar mensagem de erro](error-text.md)
-  - [Exibir validações em tempo real](real-time.md)
-  - [Lista de Validators](list-validators.md)
+  - [Create an input with validation](validate-input.md)
+  - [Create a form with validation](validate-form.md)
+  - [Customize error message](custom-error-text.md)
+  - [Create your own Validator](create-validator.md)
+  - [Retrieve error message](error-text.md)
+  - [Display real-time validations](real-time.md)
+  - [List of Validators](list-validators.md)
 
-- Referência da API
+- API Reference
 
   - [form](https://pub.dev/documentation/form/latest/)

@@ -1,17 +1,17 @@
-# Escutar alterações em um Input
+# Listen for changes to an Input
 
-Em alguns casos, é útil executar uma função de callback sempre que o texto em um campo de texto for alterado. Por exemplo, convém criar uma tela de pesquisa com funcionalidade de preenchimento automático, na qual deseja atualizar os resultados conforme o usuário digita.
+In some cases, it is useful to perform a callback function whenever the text in a text field changes. For example, you may want to create a search screen with auto-complete functionality, in which you want to update the results as the user types.
 
-Como você executa uma função de callback toda vez que o texto muda? Com o `form`, você tem duas opções:
+How do you perform a callback function every time the text changes? With form, you have two options:
 
-1. Forneça um `onChanged()` retorno de chamada para o `Input`.
-2. Usando `Input.get()`.
+1. Provide a `onChanged()` callback to Input.
+2. Using `Input.get()`.
 
-#### 1. Forneça um `onChanged()` retorno de chamada para o `Input`
+#### Provide a onChanged() callback to Input.
 
-A abordagem mais simples é fornecer um `onChanged()` retorno de chamada para o `Input`. Sempre que o texto muda, o retorno de chamada é invocado.
+The simplest approach is to provide a `onChanged()` callback to `Input`. Whenever the text changes, the callback is invoked.
 
-Neste exemplo, imprima o valor atual do campo de texto no console sempre que o texto for alterado.
+In this example, print the current value of the text field on the console whenever the text changes.
 
 ```dart
 Input(
@@ -21,23 +21,23 @@ Input(
 );
 ```
 
-#### 2. Usando `Input.get()`
+#### 2. Using Input.get()
 
-Para ser notificado quando o texto for alterado, ouça o controlador usando o `addListener()` método, seguindo as seguintes etapas:
+To be notified when the text changes, listen to the controller using the `addListener()` method, following the steps below:
 
-1. Crie uma `tag` para o `Input`.
-2. Crie uma função para imprimir o valor mais recente.
-3. Ouça o controlador para alterações.
+1. Create a `tag` for `Input`.
+2. Create a function to print the most recent value.
+3. Listen to the controller for changes.
 
-**Crie uma `tag` para o `Input`**
+**Create a tag for Input**
 
 ```dart
 Input("search");
 ```
 
-**Crie uma função para imprimir o valor mais recente**
+**Create a function to print the most recent value**
 
-Você precisa de uma função para executar sempre que o texto for alterado. Crie um método que imprima o valor atual do campo de texto.
+You need a function to perform whenever the text changes. Create a method that prints the current value of the text field.
 
 ```dart
 _printLatestValue(String text) {
@@ -45,11 +45,11 @@ _printLatestValue(String text) {
 }
 ```
 
-**Ouça o controlador para alterações**
+**Listen to the controller for changes**
 
-Por fim, ouça as alterações chamando o método `_printLatestValue()`. Use o `addListener()` método para esse fim. Se desejar, pode parar de ouvir as alterações a qualquer momento usando o método `removeListener()`, porém, o `form` cuida de de descartar esse ouvinte automaticamente quando não for mais necessário, assim como anexa-lo novamente caso seja requisitado.
+Finally, listen to the changes by calling the `_printLatestValue()` method. Use the `addListener()` method for this purpose. If you wish, you can stop listening to changes at any time using the method `removeListener()`, however, form take care to automatically discard that listener when it is no longer needed, as well as attach it again if required.
 
-!> Garanta que o `Input` já tenha sido montado antes de chamar `addListener()`. Normalmente, se `addListener` for chamado dentro de um callback na ação de um botão, ou algo semelhante, o `Input` já estará montado, porém, se deseja chamar `addListener` em um `initState`, por exemplo, deverá coloca-lo dentro de ` WidgetsBinding.instance.addPersistentFrameCallback()`.
+!> Make sure that `Input` it has already been assembled before calling `addListener()`. Normally, if it `addListener` is called within a callback at the action of a button, or something similar, `Input` it will already be mounted, however, if you want to call `addListener` on `initState`, for example, you must place it inside `WidgetsBinding.instance.addPersistentFrameCallback()`.
 
 ```dart
 @override

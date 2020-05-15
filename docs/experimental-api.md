@@ -1,3 +1,3 @@
-# API Experimental
+# Experimental API
 
-O `form` atualmente está em sua versão beta. As API disnibilizadas são totalmente funcionais, mas como foram recém lançadas, não tem testes e nem maturidade o suficiente para garantir sua estabilidade. Essas APIs podem sofrer muitas alterações até que uma versão estável seja lançada. Qualquer ajuda será muito bem vinda, seja através de [issues](https://github.com/edsonbonfim/form/issues) ou de [pull requests](https://github.com/edsonbonfim/form/pulls).
+Form currently in beta. The available APIs are fully functional, but since they were recently launched, they do not have enough tests or maturity to guarantee their stability. These APIs can undergo many changes until a stable version is released. Any help will be very welcome, either through [issues](https://github.com/edsonbonfim/form/issues) or [pull requests](https://github.com/edsonbonfim/form/pulls).

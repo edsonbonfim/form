@@ -1,24 +1,24 @@
 # Form
 
-Uma forma simples e poderosa para manipulação de formulários em flutter. :rocket::zap:
+A simple and powerful way to manipulate flutter forms. :rocket::zap:
 
-## Documentação
+## Documentation
 
-  * [Documentação Oficial](http://edsonbonfim.github.io/form)
+  * [Official Documentation](http://edsonbonfim.github.io/form)
 
 ## Change log
 
-Consulte [CHANGELOG](https://github.com/edsonbonfim/form/blob/master/CHANGELOG.md) para obter mais informações sobre o que mudou recentemente.
+See [CHANGELOG](https://github.com/edsonbonfim/form/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
-## Contribuindo
+## Contributing
 
-Envie solicitações de recursos e erros no [rastreador de problemas](https://github.com/edsonbonfim/form/issues).
+Submit feature requests and errors on the [problem tracker](https://github.com/edsonbonfim/form/issues).
 
-# Créditos
+# Credits
 
 - [Edson Bonfim](https://github.com/edsonbonfim)
 - [All Contributors](https://github.com/edsonbonfim/form/graphs/contributors)
 
-## Licença
+## License
 
-Licença de 3 Cláusulas BSD. Consulte [License](https://github.com/edsonbonfim/form/blob/master/LICENSE) para obter mais informações.
+BSD Clauses 3 License. See [License file](https://github.com/edsonbonfim/form/blob/master/LICENSE) for more information.

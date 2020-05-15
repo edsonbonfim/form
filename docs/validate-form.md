@@ -1,16 +1,16 @@
-# Criar um formulário com validação
+# Create a form with validation
 
-Neste exemplo, saiba como adicionar validação a um formulário de login que possui dois campos de texto usando as seguintes etapas:
+In this example, learn how to add validation to a login form that has two text fields using the following steps:
 
-1. Crie um `FormInput` com uma tag única para identifica-lo.
-2. Adicione os `Input` com as validações necessárias.
-3. Crie um botão para validar e enviar o formulário.
+1. Create a `FormInput` with a unique tag to identify it.
+2. Add the ones `Input` with the necessary validations.
+3. Create a button to validate and submit the form.
 
-#### 1. Crie um `FormInput` com uma tag única para identifica-lo.
+#### 1. Create a FormInput with a unique tag to identify it.
 
-Primeiro, crie um `FormInput`. O `FormInput` widget atua como um contêiner para agrupar e validar vários `Input`.
+First, create a `FormInput`. The `FormInput` widget acts as a container to group and validate several Input.
 
-Ao criar o formulário, forneça uma tag. Isso identifica exclusivamente o `FormInput` e permite a validação do formulário em uma etapa posterior.
+When creating the form, provide a tag. This uniquely identifies `FormInput` and allows validation of the form at a later stage.
 
 ```dart
 FormInput(
@@ -23,9 +23,9 @@ FormInput(
 );
 ```
 
-#### 2. Adicione os `Input` com as validações necessárias.
+#### 2. Add the ones Input with the necessary validations.
 
-O `Input` renderiza um campo de texto no estilo material design e pode exibir erros de validação quando eles ocorrem.
+The `Input` renders a text field in the material style design and can display validation errors when they occur.
 
 ```dart
 Column(
@@ -44,11 +44,11 @@ Column(
 );
 ```
 
-#### 3. Crie um botão para validar e enviar o formulário
+#### 3. Create a button to validate and submit the form
 
-Agora que você possui um formulário com os campos de texto, forneça um botão no qual o usuário possa tocar para enviar as informações.
+Now that you have a form with the text fields, provide a button that the user can tap to send the information.
 
-Quando o usuário tentar enviar o formulário, verifique se o formulário é válido. Se estiver, exiba uma mensagem de sucesso. Se não estiver, exibir a mensagem de erro.
+When the user tries to submit the form, check that the form is valid. If so, display a success message. If not, display the error message.
 
 ```dart
 RaisedButton(
@@ -65,6 +65,6 @@ RaisedButton(
 );
 ```
 
-!> Note que a `tag` usada para construir o `InputForm` deve ser a mesma usada no método `InputForm.get()`. Neste exemplo usamos a tag `"login"`.
+!> Note that the the `tag` used to build the `InputForm` must be the same used in the method `InputForm.get()`. In this example we use the tag `"login"`.
 
-> Consulte a [tabela](list-validators.md) para ver todos os `Validators` disponíveis, ou [crie seu próprio `Validator`](create-validator.md)
+> Consult the [table](list-validators.md) to see all `Validators` available, or [`create your own Validator`](create-validator.md)
