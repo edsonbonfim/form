@@ -6,7 +6,7 @@ The first thing we need to do is add the package form as a dependency on `pubspe
 
 ```yaml
 dependencies:
-  form: ^0.0.3+1
+  form: ^0.0.3+2
 ```
 
 Now we need to install the form.

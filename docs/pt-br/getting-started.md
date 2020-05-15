@@ -6,7 +6,7 @@ A primeira coisa que precisamos fazer é adicionar o package form como uma depen
 
 ```yaml
 dependencies:
-  form: ^0.0.3+1
+  form: ^0.0.3+2
 ```
 
 Agora precisamos instalar o form.
