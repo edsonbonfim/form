@@ -2,6 +2,10 @@
 
 A simple and powerful way to manipulate flutter forms. :rocket::zap:
 
+<p align="center">
+<a href="https://travis-ci.org/github/edsonbonfim/form"><img src="https://api.travis-ci.org/edsonbonfim/form.svg" alt="Build Status"></a>
+</p>
+
 ## Documentation
 
   * [Official Documentation](http://edsonbonfim.github.io/form)
