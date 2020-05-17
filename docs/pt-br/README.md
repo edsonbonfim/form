@@ -2,9 +2,15 @@
 
 Uma forma simples e poderosa para manipulação de formulários em flutter. :rocket::zap:
 
+[![Build Status](https://img.shields.io/travis/edsonbonfim/form?labelColor=333940)](https://travis-ci.org/edsonbonfim/form)
+[![Coverage Status](https://img.shields.io/coveralls/github/edsonbonfim/form?labelColor=333940)](https://coveralls.io/github/edsonbonfim/form)
+[![Pub Version](https://img.shields.io/pub/v/form?label=pub.dev&labelColor=333940)](https://pub.dev/packages/form)
+[![License](https://img.shields.io/github/license/edsonbonfim/form?labelColor=333940)](https://github.com/edsonbonfim/form/blob/master/LICENSE.md)
+
 ## Documentação
 
-  * [Documentação Oficial](http://edsonbonfim.github.io/form)
+  * [Inglês](https://edsonbonfim.github.io/form/#/)
+  * [Português Brasileiro](https://edsonbonfim.github.io/form/#/pt-br/)
 
 ## Log de alterações
 
@@ -21,4 +27,4 @@ Envie solicitações de recursos e erros no [rastreador de problemas](https://gi
 
 ## Licença
 
-Licença de 3 Cláusulas BSD. Consulte [License](https://github.com/edsonbonfim/form/blob/master/LICENSE) para obter mais informações.
+Licença MIT. Consulte [License](https://github.com/edsonbonfim/form/blob/master/LICENSE.md) para obter mais informações.

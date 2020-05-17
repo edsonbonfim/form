@@ -27,4 +27,4 @@ Submit feature requests and errors on the [issue tracker](https://github.com/eds
 
 ## License
 
-BSD Clauses 3 License. See [License file](https://github.com/edsonbonfim/form/blob/master/LICENSE.md) for more information.
+The MIT License. See [License file](https://github.com/edsonbonfim/form/blob/master/LICENSE.md) for more information.
