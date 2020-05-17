@@ -18,7 +18,7 @@ See [CHANGELOG](https://github.com/edsonbonfim/form/blob/master/CHANGELOG.md) fo
 
 ## Contributing
 
-Submit feature requests and errors on the [problem tracker](https://github.com/edsonbonfim/form/issues).
+Submit feature requests and errors on the [issue tracker](https://github.com/edsonbonfim/form/issues).
 
 ## Credits
 
