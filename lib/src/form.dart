@@ -79,9 +79,9 @@ class _FormInputBaseState extends State<FormInputBase> {
 }
 
 class Input extends StatefulWidget {
-  const Input({
+  const Input(
+    this.tag, {
     Key key,
-    this.tag,
     this.autovalidate = false,
     this.validators,
     this.focusNode,
@@ -237,11 +237,23 @@ class _InputState extends State<Input> {
       _inputs[widget.tag] = key;
     }
 
-    form._inputs[widget.tag ?? key.hashCode] = key;
+    if (form != null) {
+      form?._inputs[widget.tag ?? key.hashCode] = key;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    assert(debugCheckHasMaterial(context));
+    assert(debugCheckHasDirectionality(context));
+
+    assert(
+      !(widget.style != null &&
+          widget.style.inherit == false &&
+          (widget.style.fontSize == null || widget.style.textBaseline == null)),
+      'inherit false style must supply fontSize and textBaseline',
+    );
+
     return InputBase(
       key: key,
       tag: widget.tag,

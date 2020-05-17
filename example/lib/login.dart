@@ -9,7 +9,7 @@ class LoginForm extends StatelessWidget {
       child: Column(
         children: [
           Input(
-            tag: "username",
+            "username",
             validators: [
               Validators.required,
               Validators.minLength(6),
@@ -19,7 +19,7 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           Input(
-            tag: "password",
+            "password",
             validators: [
               Validators.required,
               Validators.strongPassword(),

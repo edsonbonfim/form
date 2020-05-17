@@ -22,11 +22,12 @@ class _InputChangesFormState extends State<InputChangesForm> {
       child: Column(
         children: [
           Input(
+            "search1",
             onChanged: (text) {
               print("First input: $text");
             },
           ),
-          Input(tag: "search"),
+          Input("search2"),
         ],
       ),
     );

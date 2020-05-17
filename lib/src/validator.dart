@@ -446,7 +446,7 @@ class MaxLengthValidator extends Validator {
 /// Check if the length of the input value is more than or equal to [max]
 class RequiredValidator extends Validator {
   @override
-  bool validate(String str) => str.isNotEmpty;
+  bool validate(String str) => str.trim().isNotEmpty;
 
   @override
   String get errorText => "This field is required";

@@ -13,6 +13,7 @@ class ValidationForm extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Input(
+            "input",
             validators: [
               Validators.required,
             ],
