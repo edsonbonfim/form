@@ -3,12 +3,16 @@
 A simple and powerful way to manipulate flutter forms. :rocket::zap:
 
 <p align="center">
-<a href="https://travis-ci.org/github/edsonbonfim/form"><img src="https://api.travis-ci.org/edsonbonfim/form.svg" alt="Build Status"></a>
+  <a href="https://travis-ci.org/github/edsonbonfim/form"><img src="https://img.shields.io/travis/edsonbonfim/form?labelColor=333940" alt="Build Status"></a>
+  <a href='https://coveralls.io/github/edsonbonfim/form'><img src='https://img.shields.io/coveralls/github/edsonbonfim/form?labelColor=333940' alt='Coverage Status'></a>
+  <a href="https://pub.dev/packages/form"><img src="https://img.shields.io/pub/v/form?label=pub.dev&labelColor=333940" alt="Pub Version"></a>
+  <a href="https://github.com/edsonbonfim/form/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/github/license/edsonbonfim/form?labelColor=333940"></a>
 </p>
 
 ## Documentation
 
-  * [Official Documentation](http://edsonbonfim.github.io/form)
+  * [English](https://edsonbonfim.github.io/form/#/)
+  * [Brazilian Portuguese](https://edsonbonfim.github.io/form/#/pt-br/)
 
 ## Change log
 
