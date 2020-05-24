@@ -223,6 +223,10 @@ class _InputState extends State<Input> {
   static final _inputs = <dynamic, GlobalKey<_InputBaseState>>{};
 
   static GlobalKey<_InputBaseState> get(dynamic tag) {
+    if (!_inputs.containsKey(tag)) {
+      throw Exception('The input "$tag" not build yet.');
+    }
+
     return _inputs[tag];
   }
 
@@ -454,6 +458,8 @@ class _InputBaseState extends State<InputBase> {
 
   String get text => _controller.text;
 
+  final textNotifier = ValueNotifier<String>("");
+
   String get errorText => _errorText;
 
   bool get isValid => _errorText == null;
@@ -477,7 +483,8 @@ class _InputBaseState extends State<InputBase> {
   void initState() {
     super.initState();
 
-    _controller = TextEditingController();
+    (_controller = TextEditingController())
+      ..addListener(() => textNotifier.value = text);
 
     if (widget.autovalidate) {
       _autovalidate();
@@ -576,5 +583,25 @@ class _InputBaseState extends State<InputBase> {
   void _autovalidate() {
     validate();
     _controller.addListener(validate);
+  }
+}
+
+class InputText extends StatelessWidget {
+  final dynamic tag;
+
+  const InputText(this.tag, {Key key})
+      : assert(tag != null),
+        super(key: key);
+
+  _InputBaseState get input => Input.get(tag);
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<String>(
+      valueListenable: input.textNotifier,
+      builder: (context, value, child) => Text(
+        value,
+      ),
+    );
   }
 }

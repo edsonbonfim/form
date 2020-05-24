@@ -1,4 +1,4 @@
-import 'package:example/input_changes.dart';
+import 'package:example/test.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(App());
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text("Form"),
         ),
-        body: InputChangesForm(),
+        body: HomePage(),
       ),
     );
   }
