@@ -41,7 +41,7 @@ class _TextEditingControllerPageState extends State<TextEditingControllerPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Input(
-                tag: "name",
+                "name",
                 controller: controller,
                 decoration: InputDecoration(
                   hintText: "Input some text...",

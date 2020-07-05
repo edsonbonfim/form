@@ -18,7 +18,7 @@ class ValidateInputPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Input(
-                tag: "email",
+                "email",
                 decoration: InputDecoration(
                   hintText: "Email",
                 ),

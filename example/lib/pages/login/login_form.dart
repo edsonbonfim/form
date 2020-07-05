@@ -10,18 +10,18 @@ class LoginForm extends StatelessWidget {
     final auth = authController.auth;
 
     return FormInput(
-      model: auth,
+      auth,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Input(
-            model: auth.username,
+            auth.username,
             decoration: InputDecoration(hintText: "E-mail"),
             keyboardType: TextInputType.emailAddress,
           ),
           SizedBox(height: 20),
           Input(
-            model: auth.password,
+            auth.password,
             decoration: InputDecoration(hintText: "Password"),
             obscureText: true,
           ),

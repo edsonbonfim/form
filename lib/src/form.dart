@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'validator.dart';
 
 class FormInput extends StatefulWidget {
-  const FormInput({
+  const FormInput(
+    this.tag, {
     Key key,
-    this.tag,
     this.model,
     @required this.child,
   }) : super(key: key);
@@ -88,9 +88,9 @@ class _FormInputBaseState extends State<FormInputBase> {
 }
 
 class Input extends StatefulWidget {
-  const Input({
+  const Input(
+    this.tag, {
     Key key,
-    this.tag,
     this.model,
     this.autovalidate = false,
     this.validators = const <Validator>[],
@@ -259,12 +259,10 @@ class _InputState extends State<Input> {
     super.initState();
     final form = context.findRootAncestorStateOfType<_FormInputBaseState>();
 
-    if (widget.tag != null) {
-      _inputs[widget.tag] = key;
-    }
-
-    if (widget.model != null) {
+    if (widget.tag is FormModel) {
       _inputs[widget.model.hashCode] = key;
+    } else {
+      _inputs[widget.tag] = key;
     }
 
     if (form != null) {
@@ -285,8 +283,8 @@ class _InputState extends State<Input> {
     );
 
     return _InputBase(
+      widget.tag,
       key: key,
-      tag: widget.tag,
       model: widget.model,
       validators: widget.validators,
       autovalidate: widget.autovalidate,
@@ -340,9 +338,9 @@ class _InputState extends State<Input> {
 }
 
 class _InputBase extends StatefulWidget {
-  const _InputBase({
+  const _InputBase(
+    this.tag, {
     Key key,
-    this.tag,
     this.model,
     this.autovalidate,
     this.validators,
@@ -444,8 +442,6 @@ class _InputBase extends StatefulWidget {
   final ToolbarOptions toolbarOptions;
 
   final bool showCursor;
-
-  static const int noMaxLength = -1;
 
   final int maxLength;
 

@@ -18,7 +18,7 @@ class InputTextPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Input(
-                tag: "name",
+                "name",
                 decoration: InputDecoration(
                   hintText: "Input some text...",
                 ),

@@ -16,7 +16,7 @@ class CustomValidatorPage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Input(
-                tag: "email",
+                "email",
                 autovalidate: true,
                 decoration: InputDecoration(
                   hintText: "Type some numbers...",

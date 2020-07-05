@@ -15,17 +15,17 @@ class ValidateFormPage extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: Center(
           child: FormInput(
-            tag: "auth",
+            "auth",
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Input(
-                  tag: "email",
+                  "email",
                   decoration: InputDecoration(hintText: "Email"),
                   validators: [Validators.email],
                 ),
                 Input(
-                  tag: "pass",
+                  "pass",
                   obscureText: true,
                   decoration: InputDecoration(hintText: "Password"),
                   validators: [Validators.minLength(6)],

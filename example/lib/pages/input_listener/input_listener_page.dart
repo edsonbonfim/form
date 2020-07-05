@@ -45,7 +45,7 @@ class _InputListenerPageState extends State<InputListenerPage> {
             children: [
               // Input
               Input(
-                tag: "name",
+                "name",
                 decoration: InputDecoration(
                   hintText: "Input some text...",
                 ),
