@@ -1,63 +1,69 @@
-// import 'package:flutter_test/flutter_test.dart';
-// import 'package:flutter/material.dart';
-// import 'package:form/form.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
+import 'package:form/form.dart';
 
-// void main() {
-//   testWidgets("Default input text", (WidgetTester tester) async {
-//     await tester.pumpWidget(Base(Input("input")));
-//     expect('', Input.get("input").text);
-//   });
+void main() {
+  testWidgets("validate", (WidgetTester tester) async {
+    await tester.pumpWidget(Base(Input(
+      'name',
+      validators: [Validators.required],
+    )));
 
-//   testWidgets("Input text", (WidgetTester tester) async {
-//     await tester.pumpWidget(Base(Input("input")));
+    expect(false, Input.get('name').validate());
 
-//     await tester.enterText(find.byType(Input), "hi");
+    await tester.enterText(find.byType(Input), " ");
+    expect(false, Input.get('name').validate());
 
-//     expect("hi", Input.get("input").text);
+    await tester.enterText(find.byType(Input), "some name");
+    expect(true, Input.get('name').validate());
+  });
 
-//     expect(find.text("hi"), findsOneWidget);
-//   });
+  testWidgets("errorText", (WidgetTester tester) async {
+    await tester.pumpWidget(Base(Input(
+      "name",
+      validators: [Validators.required],
+    )));
 
-//   testWidgets("validate input", (WidgetTester tester) async {
-//     await tester.pumpWidget(Base(Input(
-//       "input",
-//       validators: [Validators.required],
-//     )));
+    expect(null, Input.get("name").errorText);
 
-//     expect(false, Input.get("input").validate());
+    Input.get("name").validate();
 
-//     await tester.enterText(find.byType(Input), " ");
-//     expect(false, Input.get("input").validate());
+    expect(Validators.required.errorText, Input.get("name").errorText);
+  });
 
-//     await tester.enterText(find.byType(Input), "hi");
-//     expect(true, Input.get("input").validate());
-//   });
+  testWidgets('controller', (WidgetTester tester) async {
+    final controller = TextEditingController(text: 'initial value');
 
-//   testWidgets("input error text", (WidgetTester tester) async {
-//     await tester.pumpWidget(Base(Input(
-//       "input",
-//       validators: [Validators.required],
-//     )));
+    await tester.pumpWidget(Base(Input(
+      'name',
+      controller: controller,
+    )));
 
-//     expect(null, Input.get("input").errorText);
+    expect(controller, Input.get('name').controller);
+    expect('initial value', Input.get('name').text);
+  });
 
-//     Input.get("input").validate();
+  testWidgets('initialValue', (WidgetTester tester) async {
+    await tester.pumpWidget(Base(Input(
+      'name',
+      initialValue: 'initial value',
+    )));
 
-//     expect("This field is required", Input.get("input").errorText);
-//   });
-// }
+    expect('initial value', Input.get('name').text);
+  });
+}
 
-// class Base extends StatelessWidget {
-//   final Widget child;
+class Base extends StatelessWidget {
+  final Widget child;
 
-//   const Base(this.child, {Key key}) : super(key: key);
+  const Base(this.child, {Key key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Material(
-//         child: child,
-//       ),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Material(
+        child: child,
+      ),
+    );
+  }
+}

@@ -486,6 +486,8 @@ class _InputBase extends StatefulWidget {
 class _InputBaseState extends State<_InputBase> {
   TextEditingController _controller;
 
+  TextEditingController get controller => _controller;
+
   TextEditingValue get value => _controller.value;
 
   String _errorText;
@@ -604,7 +606,7 @@ class _InputBaseState extends State<_InputBase> {
   /// Retorna [true] caso o input esteja válido, caso contrário retorna [false]
   bool validate() {
     final widgetValidators = widget.validators ?? [];
-    final modelValidators = widget.model.validators ?? [];
+    final modelValidators = widget.model?.validators ?? [];
 
     // Concatena os validators do widget com os validators do model
     final validators = [...widgetValidators, ...modelValidators];
