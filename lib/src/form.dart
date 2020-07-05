@@ -95,6 +95,7 @@ class Input extends StatefulWidget {
     this.autovalidate = false,
     this.validators = const <Validator>[],
     this.controller,
+    this.initialValue,
     this.focusNode,
     this.decoration = const InputDecoration(),
     this.keyboardType,
@@ -147,6 +148,8 @@ class Input extends StatefulWidget {
   final List<Validator> validators;
 
   final TextEditingController controller;
+
+  final String initialValue;
 
   final FocusNode focusNode;
 
@@ -281,13 +284,14 @@ class _InputState extends State<Input> {
       'inherit false style must supply fontSize and textBaseline',
     );
 
-    return InputBase(
+    return _InputBase(
       key: key,
       tag: widget.tag,
       model: widget.model,
       validators: widget.validators,
       autovalidate: widget.autovalidate,
       controller: widget.controller,
+      initialValue: widget.initialValue,
       focusNode: widget.focusNode,
       decoration: widget.decoration,
       keyboardType: widget.keyboardType,
@@ -335,14 +339,15 @@ class _InputState extends State<Input> {
   }
 }
 
-class InputBase extends StatefulWidget {
-  const InputBase({
+class _InputBase extends StatefulWidget {
+  const _InputBase({
     Key key,
     this.tag,
     this.model,
     this.autovalidate,
     this.validators,
     this.controller,
+    this.initialValue,
     this.focusNode,
     this.decoration,
     this.keyboardType,
@@ -393,6 +398,8 @@ class InputBase extends StatefulWidget {
   final List<Validator> validators;
 
   final TextEditingController controller;
+
+  final String initialValue;
 
   final FocusNode focusNode;
 
@@ -480,7 +487,7 @@ class InputBase extends StatefulWidget {
   _InputBaseState createState() => _InputBaseState();
 }
 
-class _InputBaseState extends State<InputBase> {
+class _InputBaseState extends State<_InputBase> {
   TextEditingController _controller;
 
   TextEditingValue get value => _controller.value;
@@ -499,35 +506,31 @@ class _InputBaseState extends State<InputBase> {
   @override
   void initState() {
     super.initState();
-
-    _controller = widget.controller ?? TextEditingController();
-    _controller.addListener(_changeValue);
-
-    if (widget.autovalidate) addListener(validate);
+    _setController();
   }
 
   @override
-  void didUpdateWidget(InputBase oldWidget) {
+  void didUpdateWidget(_InputBase oldWidget) {
     super.didUpdateWidget(oldWidget);
-
-    if (!listEquals(oldWidget.validators, widget.validators) ||
-        !listEquals(oldWidget.model.validators, widget.model.validators)) {
-      if (_errorText != null) {
-        validate();
-      }
-    }
 
     if (oldWidget.controller != widget.controller) {
       removeListener(_changeValue);
       removeListener(validate);
-
-      _controller = widget.controller ?? TextEditingController();
-
-      addListener(_changeValue);
-
-      if (widget.autovalidate) addListener(validate);
+      _setController();
+    } else if (oldWidget.initialValue != widget.initialValue) {
+      _setInitialValue();
     }
 
+    // Revalidar input se os validators forem alterados e já exitir alguma mensagem
+    // de erro
+    // TODO: verificar a atualização quando alterar os validators dos models
+    if (_errorText != null &&
+        (!listEquals(oldWidget.validators, widget.validators) ||
+            !listEquals(oldWidget.model.validators, widget.model.validators))) {
+      validate();
+    }
+
+    // autovalidate
     if (oldWidget.autovalidate != widget.autovalidate) {
       if (widget.autovalidate) {
         if (_errorText != null || text.isNotEmpty) {
@@ -627,6 +630,25 @@ class _InputBaseState extends State<InputBase> {
 
     // Input válido
     return true;
+  }
+
+  void _setController() {
+    _controller = widget.controller ?? TextEditingController();
+    _controller.addListener(_changeValue);
+    if (text != null && text.isNotEmpty) {
+      _controller.value = TextEditingValue(text: text);
+    } else {
+      _setInitialValue();
+    }
+    if (widget.autovalidate) addListener(validate);
+  }
+
+  void _setInitialValue() {
+    if (widget.initialValue != null) {
+      _controller.value = TextEditingValue(text: widget.initialValue);
+    } else {
+      _controller.value = TextEditingValue.empty;
+    }
   }
 
   /// Permitir que atualizações no input sejam detectadas com o [ValueNotifier]

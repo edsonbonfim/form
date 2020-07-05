@@ -16,13 +16,8 @@ class LoginForm extends StatelessWidget {
         children: [
           Input(
             model: auth.username,
-            autovalidate: true,
             decoration: InputDecoration(hintText: "E-mail"),
             keyboardType: TextInputType.emailAddress,
-            validators: [
-              Validators.required,
-              Validators.email,
-            ],
           ),
           SizedBox(height: 20),
           Input(
