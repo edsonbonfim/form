@@ -437,29 +437,16 @@ class MaxLengthValidator extends Validator {
   final int max;
 
   @override
-  bool validate(String str) => str.length > max;
+  bool validate(String str) => str.length <= max;
 
   @override
   String get errorText => "Input length should be more than or equal to $max";
 }
 
-/// Check if the length of the input value is more than or equal to [max]
 class RequiredValidator extends Validator {
   @override
   bool validate(String str) => str.trim().isNotEmpty;
 
   @override
-  String get errorText => "This field is required";
-}
-
-class StrongPasswordValidator extends Validator {
-  @override
-  bool validate(String str) {
-    String regex = r"^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6,}$";
-
-    return RegExp(regex).hasMatch(str);
-  }
-
-  @override
-  String get errorText => "Forneça uma senha mais forte";
+  String get errorText => "Please fill out this field";
 }

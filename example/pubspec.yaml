@@ -10,6 +10,7 @@ dependencies:
     sdk: flutter
   form:
     path: ..
+  provider: ^4.1.3
 
 dev_dependencies:
   flutter_test:

@@ -142,6 +142,4 @@ abstract class Validators {
 
   /// Check if string matches the pattern
   static Validator matches(dynamic pattern) => MatchesValidator(pattern);
-
-  static Validator strongPassword() => StrongPasswordValidator();
 }
