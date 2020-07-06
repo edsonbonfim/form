@@ -9,7 +9,6 @@ class FormInput extends StatefulWidget {
   const FormInput(
     this.tag, {
     Key key,
-    this.model,
     @required this.child,
   }) : super(key: key);
 
@@ -17,8 +16,6 @@ class FormInput extends StatefulWidget {
       _FormInputState.get(tag).currentState;
 
   final dynamic tag;
-
-  final FormModel model;
 
   final Widget child;
 
@@ -35,12 +32,14 @@ class _FormInputState extends State<FormInput> {
 
   final key = GlobalKey<_FormInputBaseState>();
 
+  FormModel get model => widget.tag is FormModel ? widget.tag : null;
+
   @override
   void initState() {
     super.initState();
 
-    if (widget.model != null) {
-      _forms[widget.model.hashCode] = key;
+    if (model != null) {
+      _forms[model.hashCode] = key;
     } else {
       _forms[widget.tag] = key;
     }
@@ -91,7 +90,6 @@ class Input extends StatefulWidget {
   const Input(
     this.tag, {
     Key key,
-    this.model,
     this.autovalidate = false,
     this.validators = const <Validator>[],
     this.controller,
@@ -140,8 +138,6 @@ class Input extends StatefulWidget {
   static _InputBaseState get(dynamic tag) => _InputState.get(tag).currentState;
 
   final dynamic tag;
-
-  final InputNotifier model;
 
   final bool autovalidate;
 
@@ -254,13 +250,15 @@ class _InputState extends State<Input> {
 
   final key = GlobalKey<_InputBaseState>();
 
+  InputNotifier get model => widget.tag is InputNotifier ? widget.tag : null;
+
   @override
   void initState() {
     super.initState();
     final form = context.findRootAncestorStateOfType<_FormInputBaseState>();
 
-    if (widget.tag is FormModel) {
-      _inputs[widget.model.hashCode] = key;
+    if (model != null) {
+      _inputs[model.hashCode] = key;
     } else {
       _inputs[widget.tag] = key;
     }
@@ -285,7 +283,7 @@ class _InputState extends State<Input> {
     return _InputBase(
       widget.tag,
       key: key,
-      model: widget.model,
+      model: model,
       validators: widget.validators,
       autovalidate: widget.autovalidate,
       controller: widget.controller,
