@@ -1,3 +1,8 @@
+## [0.0.5] - July 05, 2020
+* Added TextEditingController support.
+* Added initValue
+* Added form model binding
+
 ## [0.0.4] - May 24, 2020
 * Added InputText widget.
 

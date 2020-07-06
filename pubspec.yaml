@@ -1,6 +1,6 @@
 name: form
 description: Uma forma simples e poderosa para manipulação de formulários em flutter.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/EdsonOnildoJR/form
 
 environment:
