@@ -11,7 +11,7 @@ abstract class Validator {
 
   String get customErrorText => _customErrorText;
 
-  void msg(String msg) => _customErrorText = msg;
+  set errorText(String msg) => _customErrorText = msg;
 }
 
 /// Check if the string contains the seed
@@ -304,14 +304,15 @@ class LowercaseValidator extends Validator {
   String get errorText => "Input should be lowercase";
 }
 
-/// Check if the string is a valid hex-encoded representation of a MongoDB ObjectId
+/// Check if the string is a valid hex-encoded
+/// representation of a MongoDB ObjectId
 class MongoIdValidator extends Validator {
   @override
   bool validate(String str) => validator.isMongoId(str);
 
   @override
-  String get errorText =>
-      "Input should contains a valid hex-encoded representation of a MongoDB ObjectId";
+  String get errorText => "Input should contains a valid hex-encoded"
+      "representation of a MongoDB ObjectId";
 }
 
 /// Check if the string contains one or more multibyte chars

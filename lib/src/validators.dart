@@ -2,7 +2,7 @@ library validators;
 
 import 'validator.dart';
 
-abstract class Validators {
+mixin Validators {
   /// Check if the string contains the seed
   static Validator contains(dynamic seed) => ContainsValidator(seed);
 
@@ -100,7 +100,8 @@ abstract class Validators {
   /// Check if the string is lowercase
   static Validator get lowercase => LowercaseValidator();
 
-  /// Check if the string is a valid hex-encoded representation of a MongoDB ObjectId
+  /// Check if the string is a valid hex-encoded
+  /// representation of a MongoDB ObjectId
   static Validator get mongoId => MongoIdValidator();
 
   /// Check if the string contains one or more multibyte chars

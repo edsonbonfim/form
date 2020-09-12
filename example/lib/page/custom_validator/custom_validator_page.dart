@@ -1,6 +1,7 @@
-import 'package:example/pages/custom_validator/only_numbers_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:form/form.dart';
+
+import 'only_numbers_validator.dart';
 
 class CustomValidatorPage extends StatelessWidget {
   @override

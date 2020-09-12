@@ -1,5 +1,6 @@
-import 'package:example/models/auth.dart';
 import 'package:flutter/foundation.dart';
+
+import '../model/auth.dart';
 
 class AuthController {
   final auth = Auth();

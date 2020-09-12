@@ -76,7 +76,7 @@ class _FormInputBaseState extends State<FormInputBase> {
   }
 
   bool validate() {
-    bool hasError = false;
+    var hasError = false;
     for (final input in _inputs.values) {
       if (!input.currentState.validate()) {
         hasError = true;
@@ -496,7 +496,6 @@ class _InputBaseState extends State<_InputBase> {
 
   final textNotifier = ValueNotifier<String>("");
 
-  @Deprecated('Use validate method instaed.')
   bool get isValid => _errorText == null;
 
   @override
@@ -517,8 +516,8 @@ class _InputBaseState extends State<_InputBase> {
       _setInitialValue();
     }
 
-    // Revalidar input se os validators forem alterados e já exitir alguma mensagem
-    // de erro
+    // Revalidar input se os validators forem alterados e já exitir alguma
+    // mensagem de erro
     // TODO: verificar a atualização quando alterar os validators dos models
     if (_errorText != null &&
         (!listEquals(oldWidget.validators, widget.validators) ||
@@ -613,7 +612,8 @@ class _InputBaseState extends State<_InputBase> {
       if (!v.validate(text ?? "")) {
         // Atualiza a mensagem de erro do input
         setState(() {
-          // Se houver, usar a mensagem customizada, senão usar a mensagem padrão
+          // Se houver, usar a mensagem customizada,
+          // senão usar a mensagem padrão
           _errorText = v.customErrorText ?? v.errorText;
         });
 
@@ -704,6 +704,7 @@ class InputNotifier<T> extends ValueNotifier<T> {
 
   bool validate() => state.validate();
 
+  @Deprecated('Use validate method instaed')
   bool get isValid => state.isValid;
 
   String get errorText => state.errorText;

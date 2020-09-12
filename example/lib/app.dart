@@ -1,8 +1,9 @@
-import 'package:example/controllers/auth_controller.dart';
-import 'package:example/pages/home/home_page.dart';
-import 'package:example/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'controller/auth_controller.dart';
+import 'page/home/home_page.dart';
+import 'page/login/login_page.dart';
 
 class App extends StatelessWidget {
   @override

@@ -1,7 +1,8 @@
-import 'package:example/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:form/form.dart';
 import 'package:provider/provider.dart';
+
+import '../../controller/auth_controller.dart';
 
 class LoginForm extends StatelessWidget {
   @override

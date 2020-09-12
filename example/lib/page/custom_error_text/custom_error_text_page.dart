@@ -23,7 +23,7 @@ class CustomErrorTextPage extends StatelessWidget {
                   hintText: "Email",
                 ),
                 validators: [
-                  Validators.email..msg(customErrorMsg),
+                  Validators.email..errorText = customErrorMsg,
                 ],
               ),
             ],

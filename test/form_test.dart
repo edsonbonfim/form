@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:form/form.dart';
 
 void main() {
-  testWidgets("validate", (WidgetTester tester) async {
+  testWidgets("validate", (var tester) async {
     await tester.pumpWidget(Base(Input(
       'name',
       validators: [Validators.required],
@@ -18,7 +18,7 @@ void main() {
     expect(true, Input.get('name').validate());
   });
 
-  testWidgets("errorText", (WidgetTester tester) async {
+  testWidgets("errorText", (var tester) async {
     await tester.pumpWidget(Base(Input(
       "name",
       validators: [Validators.required],
@@ -31,7 +31,7 @@ void main() {
     expect(Validators.required.errorText, Input.get("name").errorText);
   });
 
-  testWidgets('controller', (WidgetTester tester) async {
+  testWidgets('controller', (var tester) async {
     final controller = TextEditingController(text: 'initial value');
 
     await tester.pumpWidget(Base(Input(
@@ -43,7 +43,7 @@ void main() {
     expect('initial value', Input.get('name').text);
   });
 
-  testWidgets('initialValue', (WidgetTester tester) async {
+  testWidgets('initialValue', (var tester) async {
     await tester.pumpWidget(Base(Input(
       'name',
       initialValue: 'initial value',
