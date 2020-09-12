@@ -555,7 +555,10 @@ class _InputBaseState extends State<_InputBase> {
     return TextField(
       controller: _controller,
       focusNode: widget.focusNode,
-      decoration: widget.decoration.copyWith(errorText: _errorText),
+      decoration: widget.decoration.copyWith(
+        labelText: widget?.model?.label ?? '',
+        errorText: _errorText,
+      ),
       keyboardType: widget.keyboardType,
       textInputAction: widget.textInputAction,
       style: widget.style,
@@ -696,7 +699,9 @@ class FormModel {
 }
 
 class InputNotifier<T> extends ValueNotifier<T> {
-  InputNotifier(value, this.validators) : super(value);
+  InputNotifier(this.label, dynamic value, this.validators) : super(value);
+
+  final String label;
 
   final List<Validator> validators;
 
@@ -715,13 +720,14 @@ class InputNotifier<T> extends ValueNotifier<T> {
 
 extension StringNotifier on String {
   InputNotifier<String> get input {
-    return InputNotifier<String>(this, null);
+    return InputNotifier<String>("", this, null);
   }
 }
 
 InputNotifier<String> input({
+  String label = "",
   dynamic initialData = "",
   List<Validator> validators,
 }) {
-  return InputNotifier<String>(initialData, validators);
+  return InputNotifier<String>(label, initialData, validators);
 }
